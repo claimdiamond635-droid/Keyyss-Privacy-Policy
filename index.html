@@ -1,839 +1,766 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fbfaf4">
-  <meta name="description" content="Kebijakan Privasi KEYYSS. Pelajari bagaimana informasi pengguna dapat diproses, digunakan, dan dilindungi.">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>Kebijakan Privasi — KEYYSS</title>
-
-  <style>
-    :root {
-      --paper: #fbfaf4;
-      --white: #fff;
-      --ink: #171714;
-      --muted: #62625b;
-      --yellow: #ffe500;
-      --pink: #ff669e;
-      --mint: #a5efce;
-      --border: 2px solid var(--ink);
-      --shadow: 4px 4px 0 var(--ink);
-      --width: 1080px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 95px;
-    }
-
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body.menu-open {
-      overflow: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-underline-offset: 3px;
-    }
-
-    button {
-      color: inherit;
-      font: inherit;
-    }
-
-    button:focus-visible,
-    a:focus-visible,
-    summary:focus-visible {
-      outline: 3px solid #315cff;
-      outline-offset: 4px;
-    }
-
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 12px max(18px, calc((100% - var(--width)) / 2));
-      min-height: 76px;
-      background: var(--paper);
-      border-bottom: var(--border);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      text-decoration: none;
-    }
-
-    .brand-logo {
-      width: 43px;
-      height: 43px;
-      display: block;
-      flex-shrink: 0;
-    }
-
-    .brand-name {
-      display: block;
-      font-size: 17px;
-      line-height: 1.2;
-      font-weight: 950;
-      letter-spacing: -.06em;
-    }
-
-    .brand-subtitle {
-      display: block;
-      margin-top: 4px;
-      font-size: 10px;
-      line-height: 1.2;
-      font-weight: 900;
-      letter-spacing: .14em;
-    }
-
-    .menu-button {
-      width: 46px;
-      height: 46px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-      padding: 0;
-      border: var(--border);
-      border-radius: 7px;
-      background: var(--yellow);
-      box-shadow: 3px 3px 0 var(--ink);
-      cursor: pointer;
-    }
-
-    .menu-button span {
-      width: 20px;
-      height: 2.5px;
-      background: var(--ink);
-      transition: transform .2s, opacity .2s;
-    }
-
-    .menu-button[aria-expanded="true"] span:first-child {
-      transform: translateY(7.5px) rotate(45deg);
-    }
-
-    .menu-button[aria-expanded="true"] span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .menu-button[aria-expanded="true"] span:last-child {
-      transform: translateY(-7.5px) rotate(-45deg);
-    }
-
-    .backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 29;
-      background: #17171480;
-      opacity: 0;
-      visibility: hidden;
-      transition: .2s;
-    }
-
-    .backdrop.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .drawer {
-      position: fixed;
-      inset: 0 0 0 auto;
-      z-index: 30;
-      display: flex;
-      flex-direction: column;
-      width: min(410px, 92vw);
-      height: 100dvh;
-      overflow-y: auto;
-      padding: 23px;
-      background: var(--paper);
-      border-left: var(--border);
-      transform: translateX(105%);
-      visibility: hidden;
-      transition: transform .23s, visibility .23s;
-    }
-
-    .drawer.open {
-      transform: translateX(0);
-      visibility: visible;
-    }
-
-    .drawer-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding-bottom: 17px;
-      border-bottom: var(--border);
-    }
-
-    .drawer-heading {
-      font-size: 19px;
-      font-weight: 950;
-      letter-spacing: -.04em;
-    }
-
-    .close-button {
-      width: 39px;
-      height: 39px;
-      border: var(--border);
-      border-radius: 7px;
-      background: var(--white);
-      font-size: 23px;
-      cursor: pointer;
-    }
-
-    .menu-label {
-      margin: 20px 0 9px;
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-    }
-
-    .menu-links {
-      display: grid;
-      gap: 4px;
-    }
-
-    .menu-links a {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      padding: 8px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 750;
-    }
-
-    .menu-links a:hover {
-      background: var(--yellow);
-    }
-
-    .menu-number {
-      display: grid;
-      place-items: center;
-      flex: 0 0 29px;
-      height: 29px;
-      border: 1.5px solid var(--ink);
-      border-radius: 6px;
-      background: white;
-      font-size: 10px;
-      font-weight: 900;
-    }
-
-    .contact-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 22px;
-      padding: 14px;
-      border: var(--border);
-      border-radius: 8px;
-      background: var(--yellow);
-      box-shadow: 3px 3px 0 var(--ink);
-      text-decoration: none;
-      font-weight: 900;
-    }
-
-    .contact-link small {
-      display: block;
-      font-size: 11px;
-      font-weight: 650;
-    }
-
-    .contact-arrow {
-      font-size: 22px;
-    }
-
-    main {
-      width: min(var(--width), calc(100% - 40px));
-      margin: auto;
-      padding: 40px 0 70px;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.1fr .8fr;
-      align-items: center;
-      gap: 28px;
-      padding: clamp(25px, 5vw, 52px);
-      border: var(--border);
-      border-radius: 12px;
-      background: var(--yellow);
-      box-shadow: var(--shadow);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 10px;
-      font-weight: 950;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow-mark {
-      width: 10px;
-      height: 10px;
-      border: 1.5px solid var(--ink);
-      background: var(--pink);
-      transform: rotate(45deg);
-    }
-
-    h1 {
-      margin: 22px 0 17px;
-      max-width: 650px;
-      font-size: clamp(39px, 6vw, 68px);
-      line-height: .99;
-      letter-spacing: -.075em;
-      font-weight: 950;
-    }
-
-    .hero-description {
-      max-width: 570px;
-      margin: 0;
-      font-size: clamp(15px, 1.7vw, 18px);
-      font-weight: 550;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 24px;
-    }
-
-    .tag {
-      padding: 6px 9px;
-      border: 1.5px solid var(--ink);
-      background: var(--paper);
-      font-size: 10px;
-      font-weight: 850;
-    }
-
-    .document-art {
-      position: relative;
-      display: grid;
-      place-items: center;
-      min-height: 260px;
-    }
-
-    .document {
-      width: min(100%, 250px);
-      aspect-ratio: .8;
-      padding: 19px;
-      border: var(--border);
-      border-radius: 8px;
-      background: var(--paper);
-      box-shadow: 7px 7px 0 var(--ink);
-      transform: rotate(2deg);
-    }
-
-    .document-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding-bottom: 13px;
-      border-bottom: var(--border);
-      font-size: 10px;
-      font-weight: 950;
-    }
-
-    .document-icon {
-      display: grid;
-      place-items: center;
-      width: 27px;
-      height: 27px;
-      border: 1.5px solid var(--ink);
-      background: var(--pink);
-      font-weight: 950;
-    }
-
-    .document-title {
-      margin-top: 23px;
-      font-size: 25px;
-      line-height: 1.05;
-      letter-spacing: -.06em;
-      font-weight: 950;
-    }
-
-    .document-line {
-      height: 6px;
-      margin-top: 12px;
-      border: 1px solid var(--ink);
-      background: white;
-    }
-
-    .document-line.short {
-      width: 65%;
-    }
-
-    .document-stamp {
-      position: absolute;
-      right: -10px;
-      bottom: 26px;
-      padding: 9px 12px;
-      border: var(--border);
-      border-radius: 7px;
-      background: var(--mint);
-      box-shadow: 3px 3px 0 var(--ink);
-      font-size: 10px;
-      font-weight: 950;
-      transform: rotate(-5deg);
-    }
-
-    .intro {
-      max-width: 790px;
-      margin: 28px 0 18px;
-      color: #42423c;
-      font-size: 15px;
-    }
-
-    .summary {
-      display: grid;
-      grid-template-columns: 39px 1fr;
-      gap: 13px;
-      margin: 20px 0 30px;
-      padding: 19px;
-      border: var(--border);
-      border-radius: 10px;
-      background: var(--mint);
-    }
-
-    .summary-icon {
-      display: grid;
-      place-items: center;
-      width: 38px;
-      height: 38px;
-      border: var(--border);
-      border-radius: 8px;
-      background: white;
-      font-weight: 950;
-      font-size: 19px;
-    }
-
-    .summary strong {
-      display: block;
-      margin-bottom: 3px;
-      font-weight: 950;
-    }
-
-    .summary p {
-      margin: 0;
-      font-size: 14px;
-    }
-
-    .section {
-      margin-top: 17px;
-      padding: clamp(20px, 3vw, 32px);
-      border: var(--border);
-      border-radius: 10px;
-      background: white;
-      scroll-margin-top: 95px;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 15px;
-    }
-
-    .section-number {
-      display: grid;
-      place-items: center;
-      flex: 0 0 37px;
-      height: 37px;
-      border: var(--border);
-      border-radius: 6px;
-      background: var(--yellow);
-      font-size: 11px;
-      font-weight: 950;
-    }
-
-    h2 {
-      margin: 3px 0 0;
-      font-size: clamp(22px, 2.8vw, 29px);
-      line-height: 1.25;
-      letter-spacing: -.055em;
-    }
-
-    h3 {
-      margin: 22px 0 7px;
-      font-size: 16px;
-    }
-
-    p {
-      margin: 10px 0;
-    }
-
-    ul {
-      padding-left: 22px;
-    }
-
-    li {
-      margin: 7px 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 11px;
-      margin: 16px 0;
-    }
-
-    .mini-card {
-      padding: 14px;
-      border: 1.5px solid var(--ink);
-      border-radius: 8px;
-      background: var(--paper);
-    }
-
-    .mini-card strong {
-      display: block;
-      font-size: 14px;
-    }
-
-    .mini-card p {
-      margin: 4px 0 0;
-      color: #4e4e47;
-      font-size: 13px;
-    }
-
-    .note {
-      margin-top: 18px;
-      padding: 14px 16px;
-      border-left: 4px solid var(--ink);
-      background: #f4f2e8;
-      font-size: 13px;
-    }
-
-    details {
-      margin: 9px 0;
-      padding: 13px 15px;
-      border: 1.5px solid var(--ink);
-      border-radius: 8px;
-      background: #fffef9;
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: 850;
-    }
-
-    details p {
-      margin-bottom: 0;
-      font-size: 14px;
-    }
-
-    .contact-card {
-      margin-top: 17px;
-      padding: 19px;
-      border: var(--border);
-      border-radius: 9px;
-      background: var(--pink);
-    }
-
-    .contact-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 10px;
-      padding: 10px 13px;
-      border: var(--border);
-      border-radius: 7px;
-      background: white;
-      box-shadow: 3px 3px 0 var(--ink);
-      font-size: 13px;
-      font-weight: 900;
-      text-decoration: none;
-    }
-
-    .footer {
-      padding: 26px 20px;
-      border-top: var(--border);
-      background: #f5f0d8;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
-      width: min(var(--width), 100%);
-      margin: auto;
-    }
-
-    .footer-brand {
-      font-weight: 950;
-      letter-spacing: -.04em;
-    }
-
-    .footer-small {
-      color: #55554e;
-      font-size: 12px;
-    }
-
-    .back-top {
-      padding: 8px 11px;
-      border: 1.5px solid var(--ink);
-      border-radius: 6px;
-      background: var(--yellow);
-      font-size: 11px;
-      font-weight: 900;
-      text-decoration: none;
-    }
-
-    @media (max-width: 740px) {
-      .header {
-        min-height: 67px;
-        padding: 9px 16px;
-      }
-
-      main {
-        width: calc(100% - 30px);
-        padding-top: 24px;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        padding: 25px 21px;
-      }
-
-      .document-art {
-        min-height: 235px;
-        margin: 8px 10px;
-      }
-
-      .document {
-        width: 205px;
-      }
-
-      .document-stamp {
-        right: calc(50% - 130px);
-      }
-
-      .section {
-        margin-top: 14px;
-      }
-    }
-
-    @media (max-width: 440px) {
-      main {
-        width: calc(100% - 24px);
-      }
-
-      .brand-logo {
-        width: 36px;
-        height: 36px;
-      }
-
-      .brand-name {
-        font-size: 15px;
-      }
-
-      .brand-subtitle {
-        font-size: 8px;
-      }
-
-      .menu-button {
-        width: 42px;
-        height: 42px;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .summary {
-        grid-template-columns: 32px 1fr;
-        gap: 10px;
-        padding: 15px;
-      }
-
-      .summary-icon {
-        width: 31px;
-        height: 31px;
-      }
-
-      .section {
-        padding: 19px 16px;
-      }
-
-      .section-number {
-        flex-basis: 33px;
-        height: 33px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *, *::before, *::after {
-        transition-duration: .01ms !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfaf4">
+<meta name="description" content="Kebijakan Privasi KEYYSS. Pelajari informasi yang diproses, keamanan, hak pengguna, dan kontak dukungan resmi.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>KEYYSS — Privacy Policy</title>
+
+<style>
+:root {
+  --paper: #fbfaf4;
+  --ink: #171714;
+  --yellow: #ffe500;
+  --pink: #ff6d9f;
+  --mint: #a5efce;
+  --muted: #62625b;
+  --border: 2px solid var(--ink);
+  --shadow: 5px 5px 0 var(--ink);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 95px;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  line-height: 1.7;
+}
+
+body.menu-open { overflow: hidden; }
+
+a { color: inherit; }
+button { font: inherit; }
+button:focus-visible, a:focus-visible, summary:focus-visible {
+  outline: 3px solid #2459ff;
+  outline-offset: 4px;
+}
+
+.container {
+  width: min(1120px, calc(100% - 40px));
+  margin: auto;
+}
+
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--paper);
+  border-bottom: var(--border);
+}
+
+.header-inner {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+}
+
+.brand-name {
+  display: block;
+  font-weight: 1000;
+  font-size: 17px;
+  line-height: 1.2;
+  letter-spacing: -.06em;
+}
+
+.brand-sub {
+  display: block;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .15em;
+  line-height: 1.5;
+}
+
+.menu-toggle {
+  width: 48px;
+  height: 46px;
+  border: var(--border);
+  border-radius: 7px;
+  background: var(--yellow);
+  box-shadow: 3px 3px 0 var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 21px;
+  height: 2.5px;
+  background: var(--ink);
+  display: block;
+  transition: transform .2s, opacity .2s;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* DRAWER MENU */
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 39;
+  background: rgba(0,0,0,.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: .2s;
+}
+
+.scrim.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.drawer {
+  position: fixed;
+  inset: 0 0 0 auto;
+  z-index: 40;
+  width: min(420px, 92vw);
+  height: 100dvh;
+  overflow-y: auto;
+  padding: 22px;
+  background: var(--paper);
+  border-left: var(--border);
+  transform: translateX(105%);
+  visibility: hidden;
+  transition: transform .23s ease, visibility .23s;
+}
+
+.drawer.visible {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 15px;
+  border-bottom: var(--border);
+}
+
+.drawer-title {
+  font-size: 21px;
+  font-weight: 950;
+  letter-spacing: -.05em;
+}
+
+.close-button {
+  width: 42px;
+  height: 42px;
+  border: var(--border);
+  border-radius: 6px;
+  background: white;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.menu-label {
+  margin: 22px 0 8px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.menu-links {
+  display: grid;
+  gap: 4px;
+}
+
+.menu-links a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.menu-links a:hover {
+  background: var(--yellow);
+}
+
+.menu-number {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--ink);
+  border-radius: 5px;
+  background: white;
+  font-size: 10px;
+  font-weight: 950;
+}
+
+.contact-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 14px;
+  border: var(--border);
+  border-radius: 7px;
+  background: var(--yellow);
+  box-shadow: 3px 3px 0 var(--ink);
+  font-weight: 950;
+  text-decoration: none;
+}
+
+.contact-menu small {
+  display: block;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+/* HERO */
+main { padding: 34px 0 65px; }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+  gap: 25px;
+  padding: clamp(25px, 5vw, 54px);
+  border: var(--border);
+  border-radius: 12px;
+  background: var(--yellow);
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.eyebrow-dot {
+  width: 11px;
+  height: 11px;
+  background: var(--pink);
+  border: 1.5px solid var(--ink);
+  transform: rotate(45deg);
+}
+
+h1 {
+  max-width: 700px;
+  margin: 22px 0 18px;
+  font-size: clamp(42px, 6.5vw, 76px);
+  line-height: .98;
+  letter-spacing: -.078em;
+  font-weight: 1000;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 0;
+  font-size: clamp(15px, 1.7vw, 18px);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.chip {
+  padding: 6px 9px;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.art {
+  position: relative;
+  min-height: 280px;
+  display: grid;
+  place-items: center;
+}
+
+.document-card {
+  width: min(100%, 255px);
+  aspect-ratio: .79;
+  padding: 20px;
+  border: var(--border);
+  border-radius: 7px;
+  background: white;
+  box-shadow: 8px 8px 0 var(--ink);
+  transform: rotate(2deg);
+}
+
+.document-top {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding-bottom: 13px;
+  border-bottom: var(--border);
+  font-size: 10px;
+  font-weight: 950;
+}
+
+.document-symbol {
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--ink);
+  background: var(--pink);
+  font-weight: 1000;
+}
+
+.document-title {
+  margin-top: 24px;
+  font-size: 28px;
+  line-height: 1.05;
+  letter-spacing: -.06em;
+  font-weight: 1000;
+}
+
+.document-line {
+  height: 6px;
+  margin-top: 13px;
+  border: 1px solid var(--ink);
+}
+
+.document-line.short { width: 62%; }
+
+.stamp {
+  position: absolute;
+  right: -3px;
+  bottom: 22px;
+  padding: 10px 13px;
+  border: var(--border);
+  border-radius: 6px;
+  background: var(--mint);
+  box-shadow: 3px 3px 0 var(--ink);
+  font-size: 10px;
+  font-weight: 950;
+  transform: rotate(-5deg);
+}
+
+/* CONTENT */
+.intro {
+  max-width: 850px;
+  margin: 29px 0 18px;
+  color: #42423c;
+  font-size: 15px;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 13px;
+  margin: 20px 0 28px;
+  padding: 19px;
+  border: var(--border);
+  border-radius: 9px;
+  background: var(--mint);
+}
+
+.summary-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: var(--border);
+  border-radius: 7px;
+  background: white;
+  font-weight: 1000;
+}
+
+.summary strong { display: block; font-weight: 950; }
+.summary p { margin: 3px 0 0; font-size: 14px; }
+
+.toc {
+  margin-bottom: 20px;
+  padding: 25px;
+  border: var(--border);
+  border-radius: 10px;
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.toc h2 {
+  margin: 5px 0 14px;
+  font-size: 25px;
+  letter-spacing: -.06em;
+}
+
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 7px;
+}
+
+.toc-grid a {
+  padding: 9px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.toc-grid a:hover { background: var(--yellow); }
+
+.section {
+  margin-top: 16px;
+  padding: clamp(20px, 3vw, 32px);
+  border: var(--border);
+  border-radius: 10px;
+  background: white;
+  scroll-margin-top: 95px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.section-number {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  display: grid;
+  place-items: center;
+  border: var(--border);
+  border-radius: 7px;
+  background: var(--yellow);
+  font-size: 11px;
+  font-weight: 1000;
+}
+
+h2 {
+  margin: 3px 0 0;
+  font-size: clamp(22px, 2.8vw, 29px);
+  line-height: 1.25;
+  letter-spacing: -.055em;
+  font-weight: 950;
+}
+
+h3 { margin: 22px 0 7px; font-size: 16px; }
+p { margin: 10px 0; }
+ul { padding-left: 22px; }
+li { margin: 7px 0; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.info-card {
+  padding: 15px;
+  border: 1.5px solid var(--ink);
+  border-radius: 7px;
+  background: var(--paper);
+}
+
+.info-card strong { display: block; font-size: 14px; }
+.info-card p { margin: 5px 0 0; color: #4e4e47; font-size: 13px; }
+
+.note {
+  margin-top: 17px;
+  padding: 14px 16px;
+  border-left: 4px solid var(--ink);
+  background: #f4f2e8;
+  font-size: 13px;
+}
+
+details {
+  margin: 9px 0;
+  padding: 13px 15px;
+  border: 1.5px solid var(--ink);
+  border-radius: 7px;
+  background: #fffef9;
+}
+
+summary { cursor: pointer; font-weight: 850; }
+details p { margin-bottom: 0; font-size: 14px; }
+
+.contact-box {
+  margin-top: 16px;
+  padding: 20px;
+  border: var(--border);
+  border-radius: 8px;
+  background: var(--pink);
+}
+
+.contact-button {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 9px;
+  padding: 10px 13px;
+  border: var(--border);
+  border-radius: 6px;
+  background: white;
+  box-shadow: 3px 3px 0 var(--ink);
+  font-size: 13px;
+  font-weight: 950;
+  text-decoration: none;
+}
+
+footer {
+  padding: 25px 20px;
+  border-top: var(--border);
+  background: #f5f0d8;
+}
+
+.footer-inner {
+  width: min(1120px, 100%);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.footer-brand { font-weight: 1000; letter-spacing: -.05em; }
+.footer-small { color: #55554e; font-size: 12px; }
+
+.top-link {
+  padding: 8px 11px;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  background: var(--yellow);
+  font-size: 11px;
+  font-weight: 950;
+  text-decoration: none;
+}
+
+@media (max-width: 760px) {
+  .container { width: calc(100% - 30px); }
+  main { padding-top: 23px; }
+  .hero { grid-template-columns: 1fr; gap: 12px; padding: 25px 21px; }
+  .art { min-height: 240px; margin: 4px 10px; }
+  .document-card { width: 205px; }
+  .stamp { right: calc(50% - 130px); }
+  .toc-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+@media (max-width: 460px) {
+  .container { width: calc(100% - 24px); }
+  .header-inner { min-height: 68px; }
+  .logo { width: 37px; height: 37px; }
+  .brand-name { font-size: 15px; }
+  .brand-sub { font-size: 8px; }
+  .menu-toggle { width: 43px; height: 42px; }
+  .hero { padding: 23px 18px; }
+  h1 { font-size: clamp(39px, 12vw, 54px); }
+  .toc { padding: 18px; }
+  .toc-grid { grid-template-columns: 1fr; }
+  .cards { grid-template-columns: 1fr; }
+  .summary { grid-template-columns: 32px 1fr; gap: 10px; padding: 14px; }
+  .summary-icon { width: 31px; height: 31px; }
+  .section { padding: 19px 16px; }
+  .section-number { width: 33px; height: 33px; flex-basis: 33px; }
+  .drawer { padding: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}
+</style>
 </head>
 
-<body>
-  <header class="header" id="top">
+<body id="top">
+<header>
+  <div class="container header-inner">
     <a class="brand" href="#top" aria-label="KEYYSS Privacy Policy">
-      <svg class="brand-logo" viewBox="0 0 44 44" aria-hidden="true">
+      <svg class="logo" viewBox="0 0 44 44" aria-hidden="true">
         <rect x="2" y="2" width="40" height="40" rx="3" fill="#ffe500" stroke="#171714" stroke-width="3"/>
         <path d="M13 10V34M13 23L31 10M21 22L32 34" fill="none" stroke="#171714" stroke-width="5" stroke-linecap="square"/>
-        <rect x="6" y="6" width="6" height="6" fill="#ff669e" stroke="#171714" stroke-width="1.5"/>
+        <rect x="6" y="6" width="6" height="6" fill="#ff6d9f" stroke="#171714" stroke-width="1.5"/>
       </svg>
       <span>
         <span class="brand-name">KEYYSS</span>
-        <span class="brand-subtitle">PRIVACY POLICY</span>
+        <span class="brand-sub">PRIVACY & INFORMATION</span>
       </span>
     </a>
 
-    <button class="menu-button" id="menuToggle"
-      type="button" aria-label="Buka menu"
-      aria-expanded="false" aria-controls="menuPanel">
+    <button class="menu-toggle" id="menuToggle" type="button"
+      aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="siteMenu">
       <span></span><span></span><span></span>
     </button>
-  </header>
+  </div>
+</header>
 
-  <div class="backdrop" id="backdrop"></div>
+<div class="scrim" id="scrim" aria-hidden="true"></div>
 
-  <nav class="drawer" id="menuPanel" aria-label="Navigasi halaman" aria-hidden="true">
-    <div class="drawer-head">
-      <span class="drawer-heading">Jelajahi halaman</span>
-      <button class="close-button" id="closeMenu" type="button" aria-label="Tutup menu">×</button>
-    </div>
+<aside class="drawer" id="siteMenu" aria-label="Menu navigasi" aria-hidden="true" inert>
+  <div class="drawer-header">
+    <span class="drawer-title">Jelajahi KEYYSS</span>
+    <button class="close-button" id="closeMenu" type="button" aria-label="Tutup menu">×</button>
+  </div>
 
-    <p class="menu-label">Kebijakan privasi</p>
-
-    <div class="menu-links">
-      <a href="#ringkasan"><span class="menu-number">•</span>Ringkasan</a>
-      <a href="#cakupan"><span class="menu-number">01</span>Cakupan kebijakan</a>
-      <a href="#data"><span class="menu-number">02</span>Informasi yang diproses</a>
-      <a href="#tujuan"><span class="menu-number">03</span>Tujuan penggunaan</a>
-      <a href="#dasar"><span class="menu-number">04</span>Dasar pemrosesan</a>
-      <a href="#pembagian"><span class="menu-number">05</span>Pembagian informasi</a>
-      <a href="#penyimpanan"><span class="menu-number">06</span>Penyimpanan data</a>
-      <a href="#keamanan"><span class="menu-number">07</span>Keamanan</a>
-      <a href="#hak"><span class="menu-number">08</span>Hak pengguna</a>
-      <a href="#anak"><span class="menu-number">09</span>Privasi anak</a>
-      <a href="#pihak-ketiga"><span class="menu-number">10</span>Layanan pihak ketiga</a>
-      <a href="#perubahan"><span class="menu-number">11</span>Perubahan kebijakan</a>
-      <a href="#kontak"><span class="menu-number">12</span>Kontak</a>
-      <a href="#faq"><span class="menu-number">?</span>Pertanyaan umum</a>
-    </div>
-
-    <a class="contact-link" href="https://t.me/KeyyssSupportBot"
-       target="_blank" rel="noopener noreferrer">
-      <span>Hubungi Kami<small>Telegram · @KeyyssSupportBot</small></span>
-      <span class="contact-arrow" aria-hidden="true">↗</span>
-    </a>
+  <div class="menu-label">Informasi & kebijakan</div>
+  <nav class="menu-links">
+    <a href="#ringkasan"><span class="menu-number">•</span>Ringkasan</a>
+    <a href="#tentang"><span class="menu-number">00</span>Tentang KEYYSS</a>
+    <a href="#cakupan"><span class="menu-number">01</span>Cakupan kebijakan</a>
+    <a href="#data"><span class="menu-number">02</span>Informasi yang diproses</a>
+    <a href="#tujuan"><span class="menu-number">03</span>Tujuan penggunaan</a>
+    <a href="#dasar"><span class="menu-number">04</span>Dasar pemrosesan</a>
+    <a href="#pembagian"><span class="menu-number">05</span>Pembagian data</a>
+    <a href="#retensi"><span class="menu-number">06</span>Penyimpanan & penghapusan</a>
+    <a href="#keamanan"><span class="menu-number">07</span>Keamanan informasi</a>
+    <a href="#hak"><span class="menu-number">08</span>Hak pengguna</a>
+    <a href="#anak"><span class="menu-number">09</span>Privasi anak</a>
+    <a href="#pihak-ketiga"><span class="menu-number">10</span>Layanan pihak ketiga</a>
+    <a href="#cookies"><span class="menu-number">11</span>Cookie & teknologi</a>
+    <a href="#insiden"><span class="menu-number">12</span>Insiden keamanan</a>
+    <a href="#perubahan"><span class="menu-number">13</span>Perubahan kebijakan</a>
+    <a href="#faq"><span class="menu-number">?</span>Pertanyaan umum</a>
+    <a href="#kontak"><span class="menu-number">↗</span>Kontak resmi</a>
   </nav>
 
-  <main>
-    <section class="hero">
-      <div>
-        <div class="eyebrow"><span class="eyebrow-mark"></span>Dokumen resmi · KEYYSS</div>
-        <h1>Privasi itu penting. Sesederhana itu.</h1>
-        <p class="hero-description">
-          Penjelasan tentang informasi yang mungkin diproses saat Anda
-          menggunakan layanan atau menghubungi tim KEYYSS.
-        </p>
-        <div class="tags">
-          <span class="tag">BAHASA INDONESIA</span>
-          <span class="tag">VERSI 1.0</span>
-          <span class="tag">DIPERBARUI 18 OKTOBER 2026</span>
+  <a class="contact-menu" href="https://t.me/KeyyssSupportBot" target="_blank" rel="noopener noreferrer">
+    <span>Hubungi Kami<small>Telegram · @KeyyssSupportBot</small></span>
+    <span aria-hidden="true">↗</span>
+  </a>
+</aside>
+
+<main class="container">
+  <section class="hero">
+    <div>
+      <div class="eyebrow"><span class="eyebrow-dot"></span>Dokumen informasi · KEYYSS</div>
+      <h1>Privasi harus jelas. Bukan teka-teki.</h1>
+      <p>Pelajari bagaimana informasi dapat diproses ketika Anda menggunakan layanan dukungan KEYYSS, pilihan yang Anda miliki, dan cara menghubungi kami.</p>
+      <div class="chips">
+        <span class="chip">BAHASA INDONESIA</span>
+        <span class="chip">VERSI 1.0</span>
+        <span class="chip">18 OKTOBER 2026</span>
+      </div>
+    </div>
+
+    <div class="art" aria-hidden="true">
+      <div class="document-card">
+        <div class="document-top">
+          <span class="document-symbol">K</span>
+          KEYYSS / PRIVACY
         </div>
+        <div class="document-title">Your data.<br>Handled carefully.</div>
+        <div class="document-line"></div>
+        <div class="document-line"></div>
+        <div class="document-line short"></div>
+        <div class="document-line"></div>
+        <div class="document-line short"></div>
       </div>
+      <div class="stamp">CLEAR BY DESIGN ✓</div>
+    </div>
+  </section>
 
-      <div class="document-art" aria-hidden="true">
-        <div class="document">
-          <div class="document-header">
-            <span class="document-icon">K</span>
-            KEYYSS / PRIVACY
-          </div>
-          <div class="document-title">Your data.<br>Handled carefully.</div>
-          <div class="document-line"></div>
-          <div class="document-line"></div>
-          <div class="document-line short"></div>
-          <div class="document-line"></div>
-          <div class="document-line short"></div>
-          <div class="document-stamp">CLEAR BY DESIGN ✓</div>
-        </div>
-      </div>
-    </section>
+  <p class="intro">
+    Informasi privasi seharusnya mudah ditemukan dan dipahami. Dokumen ini menjelaskan prinsip penanganan informasi dalam interaksi dukungan KEYYSS. Isi kebijakan harus disesuaikan dengan praktik nyata layanan sebelum dijadikan pernyataan resmi.
+  </p>
 
-    <p class="intro">
-      Kebijakan ini menjelaskan praktik privasi untuk interaksi dukungan
-      KEYYSS yang merujuk pada halaman ini. Kami berusaha menggunakan
-      bahasa yang mudah dipahami dan menjelaskan batasan layanan secara terbuka.
-    </p>
+  <section class="summary" id="ringkasan">
+    <div class="summary-icon" aria-hidden="true">i</div>
+    <div>
+      <strong>Ringkasan cepat</strong>
+      <p>Pesan yang Anda kirim kepada dukungan dapat diproses untuk menjawab pertanyaan dan menindaklanjuti masalah. Jangan kirim password, PIN, OTP, token bot, API key, atau kredensial rahasia melalui chat. Kebijakan ini bukan jaminan bahwa sistem kebal dari serangan.</p>
+    </div>
+  </section>
 
-    <section class="summary" id="ringkasan">
-      <div class="summary-icon" aria-hidden="true">i</div>
-      <div>
-        <strong>Ringkasan singkat</strong>
-        <p>
-          Pesan dan informasi yang Anda kirim dapat diproses untuk menangani
-          permintaan dukungan. Jangan kirim password, PIN, kode OTP, token bot,
-          atau API key rahasia melalui percakapan biasa.
-        </p>
-      </div>
-    </section>
+  <section class="toc">
+    <div class="eyebrow">Panduan dokumen</div>
+    <h2>Daftar isi</h2>
+    <nav class="toc-grid" aria-label="Daftar isi">
+      <a href="#tentang">Tentang KEYYSS</a>
+      <a href="#cakupan">01 · Cakupan</a>
+      <a href="#data">02 · Informasi diproses</a>
+      <a href="#tujuan">03 · Tujuan penggunaan</a>
+      <a href="#dasar">04 · Dasar pemrosesan</a>
+      <a href="#pembagian">05 · Pembagian data</a>
+      <a href="#retensi">06 · Penyimpanan</a>
+      <a href="#keamanan">07 · Keamanan</a>
+      <a href="#hak">08 · Hak pengguna</a>
+      <a href="#anak">09 · Privasi anak</a>
+      <a href="#pihak-ketiga">10 · Pihak ketiga</a>
+      <a href="#cookies">11 · Cookie</a>
+      <a href="#insiden">12 · Insiden keamanan</a>
+      <a href="#perubahan">13 · Perubahan</a>
+      <a href="#faq">Pertanyaan umum</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </section>
 
-    <section class="section" id="cakupan">
-      <div class="section-heading"><span class="section-number">01</span><h2>Cakupan kebijakan</h2></div>
-      <p>
-        Kebijakan ini berlaku untuk interaksi dengan layanan dukungan KEYYSS
-        yang menautkan atau merujuk pada halaman ini, termasuk pertanyaan,
-        keluhan, permintaan bantuan, dan laporan masalah.
-      </p>
-      <p>
-        Situs, aplikasi, bot, kanal, atau layanan pihak ketiga mungkin memiliki
-        kebijakan sendiri. Saat menggunakan layanan eksternal, tinjau kebijakan
-        penyedia tersebut.
-      </p>
-      <div class="note">
-        Kebijakan harus sesuai dengan praktik operasional yang benar-benar
-        dijalankan. Teks ini bukan bukti bahwa suatu kontrol teknis telah dipasang.
-      </div>
-    </section>
+  <section class="section" id="tentang">
+    <div class="section-heading"><span class="section-number">00</span><h2>Tentang KEYYSS</h2></div>
+    <p>KEYYSS merupakan nama layanan atau identitas yang digunakan pada kanal dukungan dan proyek terkait KEYYSS. Halaman ini menjadi pusat informasi bagi pengguna yang ingin memahami penanganan informasi dalam interaksi dukungan.</p>
+    <p>Halaman kebijakan ini merupakan dokumen statis. Halaman ini tidak menyediakan formulir pendaftaran dan tidak meminta Anda memasukkan password untuk membaca isinya.</p>
+    <p>Penyebutan nama KEYYSS tidak berarti seluruh bot, situs, layanan, atau integrasi pihak ketiga otomatis dikelola oleh sistem yang sama. Layanan tambahan dapat memiliki ketentuan tersendiri.</p>
+    <div class="note"><strong>Transparansi:</strong> tambahkan identitas pengelola atau badan usaha hanya jika informasinya benar dan memang berlaku.</div>
+  </section>
 
-    <section class="section" id="data">
-      <div class="section-heading"><span class="section-number">02</span><h2>Informasi yang mungkin diproses</h2></div>
-      <p>Jenis informasi bergantung pada cara Anda berinteraksi dan apa yang Anda kirimkan.</p>
-      <div class="grid">
-        <div class="mini-card"><strong>Pesan dan lampiran</strong><p>Pertanyaan, laporan, tanggapan, serta file atau gambar yang dikirim secara sukarela.</p></div>
-        <div class="mini-card"><strong>Informasi akun</strong><p>Nama tampilan, username, atau informasi kontak yang tersedia saat meminta bantuan.</p></div>
-        <div class="mini-card"><strong>Informasi teknis</strong><p>Data operasional yang mungkin dicatat platform atau penyedia hosting, seperti waktu permintaan dan log kesalahan.</p></div>
-        <div class="mini-card"><strong>Riwayat penanganan</strong><p>Catatan yang diperlukan
+  <section class="section" id="cakupan">
+    <div class="section-heading"><span class="section-number">01</span><h2>Cakupan kebijakan</h2></div>
+    <p>Kebijakan ini menjelaskan penanganan informasi dalam interaksi dukungan KEYYSS, termasuk saat pengguna mengirim pertanyaan, melaporkan gangguan, meminta bantuan teknis, atau memberikan umpan balik.</p>
+    <p>Kebijakan ini tidak menggantikan kebijakan privasi Telegram, GitHub Pages, penyedia hosting, penyedia pembayaran, atau platform lain. Masing-masing penyedia dapat memproses informasi berdasarkan ketentuan mereka sendiri.</p>
+    <h3>Kapan kebijakan ini relevan?</h3>
+    <ul>
+      <li>Saat Anda menghubungi akun dukungan KEYYSS.</li>
+      <li>Saat Anda mengirim informasi untuk menjelaskan kendala.</li>
+      <li>Saat tim dukungan menindaklanjuti laporan dan menyimpan catatan yang relevan.</li>
+    </ul>
+    <p>Jika layanan tertentu memiliki kebijakan khusus, kebijakan tersebut sebaiknya ditampilkan sebelum informasi dikumpulkan.</p>
+  </section>
+
+  <section class="section" id="data">
+    <div class="section-heading"><span class="section-number">02</span><h2>Informasi yang mungkin diproses</h2></div>
+    <p>Jenis informasi bergantung pada platform yang digunakan, fitur yang aktif, dan data yang Anda pilih untuk dikirim. Kirim hanya informasi minimum yang diperlukan.</p>
+    <div class="cards">
+      <div class="info-card"><strong>Pesan dan laporan</strong><p>Pertanyaan, keluhan, tanggapan, waktu percakapan, dan konteks yang Anda berikan.</p></div>
+      <div class="info-card"><strong>Identitas platform</strong><p>Nama tampilan, username, ID akun platform, atau kontak yang tersedia saat interaksi.</p></div>
+      <div class="info-card"><strong>Lampiran</strong><p>Screenshot, gambar, dokumen, atau file yang Anda pilih untuk dikirim.</p></div>
+      <div class="info-card"><strong>Data teknis</strong><
