@@ -1,55 +1,769 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy - KEYYSS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fffef3">
+  <meta name="description" content="Kebijakan Privasi KEYYSS Customer Service. Pelajari informasi yang diproses, tujuan penggunaan, penyimpanan, keamanan, dan pilihan Anda saat menghubungi kami.">
+  <meta name="robots" content="index,follow">
+  <title>Kebijakan Privasi — KEYYSS</title>
   <style>
+    :root {
+      --paper: #fffef3;
+      --white: #ffffff;
+      --ink: #111111;
+      --muted: #55554f;
+      --line: #151515;
+      --yellow: #ffe500;
+      --pink: #ff5d9e;
+      --mint: #9af0c8;
+      --soft: #f4f1df;
+      --shadow: 5px 5px 0 var(--ink);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.7;
-      color: #222;
-      background: #f8fafc;
+      -webkit-font-smoothing: antialiased;
     }
+
+    a {
+      color: inherit;
+      text-underline-offset: 4px;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid #2457ff;
+      outline-offset: 4px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px clamp(18px, 5vw, 72px);
+      background: rgba(255, 254, 243, 0.96);
+      border-bottom: 3px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 950;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      background: transparent;
+      flex: 0 0 44px;
+    }
+
+    .brand-mark svg {
+      display: block;
+      width: 44px;
+      height: 44px;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.13em;
+      line-height: 1.1;
+    }
+
+    .top-link {
+      font-size: 12px;
+      font-weight: 850;
+      text-decoration: none;
+      border: 2px solid var(--ink);
+      padding: 9px 13px;
+      background: var(--yellow);
+      box-shadow: 3px 3px 0 var(--ink);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .top-link:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .layout {
+      width: min(1160px, calc(100% - 36px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 255px minmax(0, 1fr);
+      gap: 34px;
+      padding: 48px 0 76px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 94px;
+    }
+
+    .side-card,
+    .hero,
+    .section-card,
+    .notice,
+    .footer-card {
+      border: 3px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .side-card {
+      background: var(--white);
+      padding: 20px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      font-weight: 950;
+    }
+
+    .side-title {
+      font-size: 18px;
+      font-weight: 950;
+      letter-spacing: -0.04em;
+      margin: 0 0 12px;
+    }
+
+    .toc {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc li + li {
+      margin-top: 5px;
+    }
+
+    .toc a {
+      display: block;
+      padding: 7px 9px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .toc a:hover,
+    .toc a.active {
+      background: var(--yellow);
+    }
+
+    .side-note {
+      background: var(--mint);
+      border: 3px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      margin-top: 18px;
+      font-size: 12px;
+      font-weight: 650;
+    }
+
     main {
-      background: white;
-      padding: 28px;
-      border-radius: 12px;
+      min-width: 0;
     }
-    h1, h2 { color: #111827; }
+
+    .hero {
+      background: var(--yellow);
+      padding: clamp(24px, 5vw, 48px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 10px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--white);
+      font-size: 11px;
+      font-weight: 900;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 0.99;
+      letter-spacing: -0.075em;
+      max-width: 760px;
+      margin: 22px 0 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: clamp(15px, 2vw, 18px);
+      font-weight: 600;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .meta-chip {
+      background: var(--white);
+      border: 2px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+      padding: 8px 11px;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .intro {
+      margin: 30px 0;
+      font-size: 15px;
+      color: #292923;
+    }
+
+    .notice {
+      padding: 18px 20px;
+      margin: 22px 0 30px;
+      background: var(--mint);
+    }
+
+    .notice strong {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 950;
+    }
+
+    .section-card {
+      background: var(--white);
+      padding: clamp(20px, 3vw, 30px);
+      margin-top: 22px;
+      scroll-margin-top: 100px;
+    }
+
+    .section-head {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .number {
+      flex: 0 0 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      background: var(--yellow);
+      border: 3px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+      font-weight: 1000;
+    }
+
+    h2 {
+      font-size: clamp(22px, 3vw, 29px);
+      letter-spacing: -0.055em;
+      line-height: 1.15;
+      margin: 5px 0 0;
+    }
+
+    h3 {
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      margin: 22px 0 8px;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    ul {
+      padding-left: 22px;
+      margin: 10px 0;
+    }
+
+    li {
+      padding-left: 3px;
+      margin: 6px 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .inline-tag {
+      display: inline-block;
+      background: var(--soft);
+      border: 1.5px solid var(--ink);
+      padding: 1px 6px;
+      border-radius: 5px;
+      font-size: 0.9em;
+      font-weight: 750;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .mini-card {
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .mini-card strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .mini-card p {
+      font-size: 13px;
+      margin: 0;
+    }
+
+    details {
+      border: 2px solid var(--ink);
+      border-radius: 10px;
+      padding: 13px 15px;
+      margin: 10px 0;
+      background: #fffef9;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 850;
+    }
+
+    details p {
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    .contact-box {
+      background: var(--pink);
+      border: 3px solid var(--ink);
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 16px;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .contact-box p {
+      margin: 5px 0;
+    }
+
+    .footer {
+      border-top: 3px solid var(--ink);
+      background: #fff4bf;
+      padding: 30px 18px;
+    }
+
+    .footer-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer strong {
+      font-weight: 1000;
+      letter-spacing: -0.03em;
+    }
+
+    .footer small {
+      color: #4b493d;
+    }
+
+    .back-top {
+      display: inline-block;
+      background: var(--yellow);
+      border: 2px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+      padding: 8px 12px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    @media (max-width: 820px) {
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-top: 26px;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .side-card {
+        padding: 16px;
+      }
+
+      .toc {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 3px 8px;
+      }
+
+      .toc li + li {
+        margin-top: 0;
+      }
+
+      .side-note {
+        margin-top: 12px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .topbar {
+        padding: 12px 16px;
+      }
+
+      .brand {
+        font-size: 13px;
+      }
+
+      .top-link {
+        font-size: 11px;
+      }
+
+      .layout {
+        width: min(100% - 24px, 1160px);
+      }
+
+      .toc {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        box-shadow: 4px 4px 0 var(--ink);
+      }
+
+      .section-card {
+        box-shadow: 4px 4px 0 var(--ink);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
+
 <body>
-<main>
-  <h1>Privacy Policy</h1>
-  <p><strong>KEYYSS Customer Service</strong></p>
-  <p>Last updated: October 18, 2026</p>
+  <header class="topbar" id="top">
+    <a class="brand" href="#top" aria-label="KEYYSS — halaman kebijakan privasi">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 44 44" role="img" aria-label="">
+          <rect x="2" y="2" width="40" height="40" rx="3"
+            fill="#ffe500" stroke="#111" stroke-width="3"/>
+          <path d="M12 11V33M12 23L29 11M18 22L31 33"
+            fill="none" stroke="#111" stroke-width="5"
+            stroke-linecap="square" stroke-linejoin="miter"/>
+          <rect x="7" y="7" width="5" height="5"
+            fill="#ff5d9e" stroke="#111" stroke-width="1.5"/>
+        </svg>
+      </span>
+      <span>KEYYSS<small>PRIVACY POLICY</small></span>
+    </a>
 
-  <h2>1. Information We Collect</h2>
-  <p>Bot ini dapat menerima informasi yang Anda kirimkan, seperti pesan, pertanyaan, dan laporan untuk keperluan layanan pelanggan.</p>
+    <a class="top-link"
+      href="https://t.me/KeyyssSupportBot"
+      target="_blank"
+      rel="noopener noreferrer">
+      HUBUNGI KAMI ↗
+    </a>
+  </header>
 
-  <h2>2. How We Use Information</h2>
-  <p>Informasi digunakan untuk menanggapi pertanyaan, membantu menyelesaikan kendala, dan meningkatkan layanan Customer Service KEYYSS.</p>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Navigasi kebijakan privasi">
+      <div class="side-card">
+        <p class="eyebrow">PANDUAN DOKUMEN</p>
+        <p class="side-title">Daftar isi</p>
 
-  <h2>3. Data Sharing</h2>
-  <p>Kami tidak menjual informasi pengguna. Informasi hanya dibagikan jika diperlukan untuk operasional layanan atau diwajibkan oleh hukum.</p>
+        <nav>
+          <ul class="toc" id="toc">
+            <li><a href="#ringkasan">Ringkasan</a></li>
+            <li><a href="#cakupan">1. Cakupan</a></li>
+            <li><a href="#data">2. Data yang diproses</a></li>
+            <li><a href="#tujuan">3. Tujuan penggunaan</a></li>
+            <li><a href="#dasar">4. Dasar pemrosesan</a></li>
+            <li><a href="#pembagian">5. Pembagian data</a></li>
+            <li><a href="#penyimpanan">6. Penyimpanan</a></li>
+            <li><a href="#keamanan">7. Keamanan</a></li>
+            <li><a href="#hak">8. Hak pengguna</a></li>
+            <li><a href="#anak">9. Privasi anak</a></li>
+            <li><a href="#pihak-ketiga">10. Layanan pihak ketiga</a></li>
+            <li><a href="#perubahan">11. Perubahan kebijakan</a></li>
+            <li><a href="#kontak">12. Kontak</a></li>
+          </ul>
+        </nav>
 
-  <h2>4. Data Retention</h2>
-  <p>Pesan dan informasi dapat disimpan selama diperlukan untuk menangani permintaan layanan dan memenuhi kewajiban yang berlaku.</p>
+        <div class="side-note">
+          Privasi bukan sekadar halaman. Kebijakan ini harus sesuai dengan
+          cara layanan KEYYSS benar-benar beroperasi.
+        </div>
+      </div>
+    </aside>
 
-  <h2>5. Data Security</h2>
-  <p>Kami berupaya menjaga keamanan informasi pengguna, tetapi tidak dapat menjamin keamanan mutlak.</p>
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <span class="pill">● DOKUMEN RESMI · KEYYSS</span>
 
-  <h2>6. Contact</h2>
-  <p>Untuk pertanyaan mengenai kebijakan privasi ini, hubungi Customer Service KEYYSS melalui bot Telegram resmi.</p>
+        <h1 id="page-title">Privasi itu penting. Sesederhana itu.</h1>
 
-  <h2>7. Changes</h2>
-  <p>Kebijakan ini dapat diperbarui sewaktu-waktu. Perubahan akan ditampilkan pada halaman ini.</p>
+        <p>
+          Kami ingin Anda memahami informasi apa yang mungkin diproses ketika
+          menggunakan layanan atau menghubungi KEYYSS, alasan pemrosesannya,
+          serta pilihan yang tersedia bagi Anda.
+        </p>
 
-  <p>© 2024 KEYYSS. All Rights Reserved.</p>
-</main>
-</body>
-</html>
+        <div class="hero-meta">
+          <span class="meta-chip">BAHASA: INDONESIA</span>
+          <span class="meta-chip">DIPERBARUI: 18 OKTOBER 2026</span>
+          <span class="meta-chip">VERSI: 1.0</span>
+        </div>
+      </section>
+
+      <p class="intro">
+        Kebijakan Privasi ini menjelaskan praktik privasi untuk layanan
+        KEYYSS Customer Service dan interaksi terkait yang merujuk ke dokumen
+        ini. Baca dokumen ini sebelum mengirimkan informasi pribadi kepada kami.
+      </p>
+
+      <div class="notice" id="ringkasan">
+        <strong>Ringkasan singkat</strong>
+        Kami dapat memproses pesan yang Anda kirim, informasi akun atau kontak
+        yang Anda sertakan, serta data teknis terbatas yang dibutuhkan oleh
+        platform untuk menjalankan dan melindungi layanan. Kami tidak meminta
+        Anda mengirim kata sandi, kode OTP, PIN, atau data pembayaran rahasia
+        melalui chat dukungan.
+      </div>
+
+      <section class="section-card" id="cakupan">
+        <div class="section-head">
+          <span class="number">01</span>
+          <h2>Cakupan kebijakan</h2>
+        </div>
+
+        <p>
+          Kebijakan ini berlaku untuk interaksi Anda dengan layanan dukungan
+          KEYYSS yang menautkan atau merujuk pada halaman ini, termasuk
+          percakapan untuk bertanya, menyampaikan keluhan, meminta bantuan,
+          atau melaporkan masalah.
+        </p>
+
+        <p>
+          Kebijakan ini tidak otomatis mencakup situs, aplikasi, bot, kanal,
+          atau layanan milik pihak lain yang memiliki kebijakan privasi sendiri.
+          Jika Anda membuka layanan eksternal, periksa kebijakan penyedia
+          tersebut secara langsung.
+        </p>
+
+        <p>
+          <strong>Catatan penting:</strong> isi dokumen ini harus disesuaikan
+          dengan sistem yang benar-benar digunakan. Fitur yang belum tersedia
+          atau praktik yang tidak dilakukan tidak boleh dianggap sebagai fakta
+          hanya karena tercantum di halaman ini.
+        </p>
+      </section>
+
+      <section class="section-card" id="data">
+        <div class="section-head">
+          <span class="number">02</span>
+          <h2>Informasi yang mungkin diproses</h2>
+        </div>
+
+        <p>
+          Jenis informasi bergantung pada cara Anda berinteraksi dengan layanan
+          dan informasi yang Anda pilih untuk kirimkan.
+        </p>
+
+        <div class="two-col">
+          <div class="mini-card">
+            <strong>Pesan dan lampiran</strong>
+            <p>
+              Isi pertanyaan, laporan, tanggapan, serta file atau gambar yang
+              Anda kirim secara sukarela.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <strong>Informasi kontak</strong>
+            <p>
+              Nama tampilan, username, atau alamat kontak yang tersedia atau
+              Anda sertakan saat meminta bantuan.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <strong>Informasi teknis</strong>
+            <p>
+              Data operasional dan keamanan yang mungkin dicatat oleh platform
+              atau penyedia hosting, seperti waktu permintaan dan log kesalahan.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <strong>Riwayat penanganan</strong>
+            <p>
+              Catatan yang diperlukan untuk memahami masalah, menghindari
+              pengulangan, dan menindaklanjuti permintaan dukungan.
+            </p>
+          </div>
+        </div>
+
+        <h3>Informasi yang sebaiknya tidak dikirim</h3>
+
+        <p>
+          Jangan mengirim kata sandi, PIN, kode OTP, kode pemulihan, private
+          key, token bot, API key rahasia, nomor kartu lengkap, CVV, atau
+          dokumen identitas kecuali benar-benar diperlukan melalui proses resmi
+          yang aman. Jika Anda terlanjur membagikan rahasia akses, segera cabut
+          atau ganti rahasia tersebut melalui layanan terkait.
+        </p>
+
+        <p>
+          Kami tidak bermaksud meminta data sensitif untuk pertanyaan dukungan
+          biasa. Bila suatu proses khusus membutuhkan verifikasi, pastikan
+          instruksi tersebut berasal dari kanal resmi KEYYSS dan pahami tujuan
+          serta cara penanganan datanya sebelum melanjutkan.
+        </p>
+      </section>
+
+      <section class="section-card" id="tujuan">
+        <div class="section-head">
+          <span class="number">03</span>
+          <h2>Bagaimana informasi digunakan</h2>
+        </div>
+
+        <p>
+          Informasi yang relevan dapat digunakan secara terbatas untuk tujuan
+          berikut:
+        </p>
+
+        <ul>
+          <li>Menjawab pertanyaan, menangani laporan, dan memberikan dukungan yang diminta.</li>
+          <li>Memeriksa status masalah, menjaga kesinambungan percakapan, dan menghindari penanganan berulang.</li>
+          <li>Mendeteksi penyalahgunaan, spam, aktivitas mencurigakan, atau gangguan keamanan.</li>
+          <li>Memperbaiki kualitas, stabilitas, aksesibilitas, dan pengalaman penggunaan layanan.</li>
+          <li>Memenuhi kewajiban hukum yang berlaku atau menanggapi permintaan sah dari otoritas yang berwenang.</li>
+        </ul>
+
+        <p>
+          Informasi tidak seharusnya digunakan untuk tujuan baru yang tidak
+          berkaitan tanpa dasar yang sesuai atau pemberitahuan yang diperlukan.
+          Jika ada tujuan tambahan yang material, kebijakan ini akan diperbarui
+          sebagaimana mestinya.
+        </p>
+      </section>
+
+      <section class="section-card" id="dasar">
+        <div class="section-head">
+          <span class="number">04</span>
+          <h2>Dasar pemrosesan</h2>
+        </div>
+
+        <p>
+          Jika dan sejauh hukum perlindungan data yang berlaku mensyaratkannya,
+          pemrosesan dapat didasarkan pada satu atau lebih alasan berikut,
+          sesuai konteks:
+        </p>
+
+        <ul>
+          <li>Menanggapi permintaan Anda atau menjalankan layanan yang Anda minta.</li>
+          <li>Persetujuan Anda, ketika persetujuan memang menjadi dasar yang diperlukan.</li>
+          <li>Kepentingan yang sah, misalnya melindungi layanan dari penyalahgunaan, dengan mempertimbangkan hak Anda.</li>
+          <li>Memenuhi kewajiban hukum atau menangani klaim yang sah.</li>
+        </ul>
+
+        <p>
+          Dasar yang tepat bergantung pada jenis data, konteks interaksi, dan
+          ketentuan hukum yang berlaku. Anda dapat meminta penjelasan mengenai
+          pemrosesan informasi Anda melalui kanal kontak yang tersedia.
+        </p>
+      </section>
+
+      <section class="section-card" id="pembagian">
+        <div class="section-head">
+          <span class="number">05</span>
+          <h2>Pembagian dan pengungkapan informasi</h2>
+        </div>
+
+        <p>
+          Kami tidak menjual informasi pribadi Anda. Informasi hanya boleh
+          dibagikan apabila diperlukan untuk tujuan yang dijelaskan dalam
+          kebijakan ini, berdasarkan instruksi Anda, atau ketika diwajibkan
+          maupun diizinkan oleh hukum yang berlaku.
+        </p>
+
+        <p>
+          Dalam operasional layanan, informasi mungkin diproses oleh penyedia
+          infrastruktur yang relevan, misalnya platform pesan, layanan hosting,
+          atau penyedia keamanan. Penyedia tersebut dapat memiliki kebijakan
+          dan kewajiban sendiri atas data yang mereka proses.
+        </p>
+
+        <p>
+          Informasi juga dapat diungkapkan jika diperlukan untuk memenuhi proses
+          hukum yang sah, menyelidiki dugaan penyalahgunaan, melindungi
+          keselamatan seseorang, atau menjaga hak dan keama
